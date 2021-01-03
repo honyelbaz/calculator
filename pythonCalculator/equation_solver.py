@@ -57,7 +57,3 @@ def is_valid(eq):
     else:
         print(msg)
         return False
-
-
-while True:
-    print(is_valid(input()))
