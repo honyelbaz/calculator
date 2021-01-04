@@ -5,7 +5,7 @@ import equation_solver as solver
 s = io.get_equation()
 print(s)
 #solve the input
-solver.solve(s)
+solver.solve_(s)
 #if solved
     #print back the result
 #else

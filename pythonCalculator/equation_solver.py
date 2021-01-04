@@ -64,3 +64,10 @@ def solve(s):
         i = finder.find_strongest_operator(s)
         s = god.make_operation(s, i)
         print(s)
+    return s
+
+
+def solve_(s):
+    if not is_valid(s):
+        return s
+    return solve(s)

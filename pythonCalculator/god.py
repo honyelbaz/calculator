@@ -5,11 +5,22 @@
 
 #god holds a dictionary of the all the operators and their strengths
 import finder
+import equation_solver
 
 operators = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3, '~': 6, '%': 4, '!': 6, '@': 5, '$': 5, '&': 5, ')': 99}
 
 
 #-------------------------------------------------------operations   V
+
+def closer_bracket_act(eq, i):
+    if eq[i] != ')':
+        raise Exception("not a closer bracket")
+    openn = finder.find_open_bracket(eq, i)
+    s1, s2, s3 = split_to_3_string(eq, openn, i)
+    s2 = s2.replace('(', '')
+    s2 = s2.replace(')', '')
+    s = equation_solver.solve(s2)
+    return s1 + str(s) + s3
 
 
 def middle_operator_range(eq, i):
@@ -202,6 +213,8 @@ def make_operation(eq, i):
         return make_middle_operation(eq, i)
     if s == "right":
         return make_right_operation(eq, i)
+    if s == "closer":
+        return closer_bracket_act(eq, i)
 
 
 def kind_of_operator(c):

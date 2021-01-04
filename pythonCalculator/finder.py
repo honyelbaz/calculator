@@ -11,7 +11,6 @@ def find_char_to_the_right(eq, i):
     return i
 
 
-
 #
 #
 def left_operator_range(eq, i):
@@ -65,3 +64,9 @@ def find_strongest_operator(eq):
             maxi = i
             maxs = god.strength_of(eq[i])
     return maxi
+
+
+def find_open_bracket(eq, i):
+    while i >= 0 and eq[i] != '(':
+        i -= 1
+    return i
